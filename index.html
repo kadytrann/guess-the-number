@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-	<script>
-        let num = Math.floor(Math.random() * 11);
 
-        let guess = prompt("guess a number between 1 and 10");
+  <head>
+  </head>
 
-        if(num == guess)
-        {
-            alert("Got it!");
-        }else{
-            alert("Sorry!  You guessed " + guess + " and the number was " + num);
+  <body>
+    <script>
+      let num = Math.floor(Math.random() * 11);
+      let guess = prompt("guess a number between 1 and 10");
+      let gotIt = false;
+      let numGuesses = 0;
+
+      while (gotIt === false) {
+        numGuesses++;
+        if (num == guess) {
+          //alert("Got it!");
+          gotIt = true; //break out of loop
+        } else { //contiune since answer is incorrect
+
+          if (num > guess) { //Higher!
+            guess = prompt("Higher!");
+
+          } else { //lower
+            guess = prompt("Lower!");
+
+          }
+
+          //guess = prompt("guess again!");
         }
 
-	</script>
-</body>
+      }
+      if (numGuesses == 1) {
+        alert("Congratulations! You guessed the correct number, which was " + num + " and it took you " + numGuesses + " guess.")
+      } else {
+        alert("Congratulations! You guessed the correct number, which was " + num + " and it took you " + numGuesses + " guesses.")
+      }
+      //alert("Got it! You guessed " + numGuesses + " times!");
+      //alert("Sorry!  You guessed " + guess + " and the number was " + num);
+
+    </script>
+  </body>
+
 </html>
